@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="RowTransactionItemBinding">
+        <variable
+            name="model"
+            type="com.example.atmapp.model.AtmTransactionHistory" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtWithdrawValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="@{`Rs`+model.atmWithdrawAmount}"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guidelineAmount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3"
+            app:layout_constraintStart_toEndOf="@id/txtWithdrawValue" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRs100Count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@{model.atm100NotesCount+``}"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline100Count"
+            app:layout_constraintStart_toStartOf="@id/guidelineAmount"
+            app:layout_constraintTop_toTopOf="@id/txtWithdrawValue" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline100Count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.48"
+            app:layout_constraintStart_toEndOf="@id/txtWithdrawValue" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRs200Count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@{model.atm200NotesCount+``}"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline200Count"
+            app:layout_constraintStart_toEndOf="@id/guideline100Count"
+            app:layout_constraintTop_toTopOf="@id/txtWithdrawValue" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline200Count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65"
+            app:layout_constraintStart_toEndOf="@id/txtWithdrawValue" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRs500Count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@{model.atm500NotesCount+``}"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline500Count"
+            app:layout_constraintStart_toEndOf="@id/guideline200Count"
+            app:layout_constraintTop_toTopOf="@id/txtWithdrawValue" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline500Count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.82"
+            app:layout_constraintStart_toEndOf="@id/txtRs500Count" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtRs2000Count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@{model.atm2000NotesCount+``}"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline500Count"
+            app:layout_constraintTop_toTopOf="@id/txtWithdrawValue" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

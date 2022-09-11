@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtTransAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:text="@string/atm_amount"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLastTransAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3"
+        app:layout_constraintStart_toEndOf="@id/txtTransAmount" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtTransRs100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:text="@string/rs_100"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/guidelineLastTransAmount"
+        app:layout_constraintTop_toTopOf="@id/txtTransAmount" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline100RsTrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.48"
+        app:layout_constraintStart_toEndOf="@id/txtTransRs100" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtRs200Trans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:text="@string/rs_200"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/guideline100RsTrans"
+        app:layout_constraintTop_toTopOf="@id/txtTransAmount" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline200RsTrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.65"
+        app:layout_constraintStart_toEndOf="@id/txtRs200Trans" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtRs500Trans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:text="@string/rs_500"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/txtTransAmount"
+        app:layout_constraintStart_toEndOf="@id/guideline200RsTrans"
+        app:layout_constraintTop_toTopOf="@id/txtTransAmount" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline500RsTrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.82"
+        app:layout_constraintStart_toEndOf="@id/txtRs500Trans" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtRs2000Trans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:text="@string/rs_2000"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline500RsTrans"
+        app:layout_constraintTop_toTopOf="@id/txtTransAmount" />
+</androidx.constraintlayout.widget.ConstraintLayout>

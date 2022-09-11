@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="AtmActivityDataBinding">
+
+        <variable
+            name="atmModel"
+            type="com.example.atmapp.model.ATMEntity" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_offwhite"
+            tools:context=".ui.activity.ATMActivity">
+
+            <ProgressBar
+                android:id="@+id/progressLoading"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:progressTint="@color/purple_700"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtAtmAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="@string/atm_amount"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtAtmAmountValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:text="@{`Rs.`+atmModel.atmTotalAmount}"
+                        android:textColor="@color/color_gray"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/txtAtmAmount"
+                        app:layout_constraintStart_toStartOf="@id/txtAtmAmount"
+                        app:layout_constraintTop_toBottomOf="@id/txtAtmAmount"
+                        tools:text="Rs.50000" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guidelineAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.3"
+                        app:layout_constraintStart_toEndOf="@id/txtAtmAmount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtRs100"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="@string/rs_100"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/guidelineAmount"
+                        app:layout_constraintTop_toTopOf="@id/txtAtmAmount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtRs100Count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@{``+atmModel.atm100NotesCount}"
+                        android:textColor="@color/color_gray"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/txtRs100"
+                        app:layout_constraintStart_toStartOf="@id/txtRs100"
+                        app:layout_constraintTop_toBottomOf="@id/txtRs100" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline100Rs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.48"
+                        app:layout_constraintStart_toEndOf="@id/txtRs100" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtRs200"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="@string/rs_200"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/guideline100Rs"
+                        app:layout_constraintTop_toTopOf="@id/txtAtmAmount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtRs200Count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@{``+atmModel.atm200NotesCount}"
+                        android:textColor="@color/color_gray"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/txtRs200"
+                        app:layout_constraintStart_toStartOf="@id/txtRs200"
+                        app:layout_constraintTop_toBottomOf="@id/txtRs200" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline200Rs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.65"
+                        app:layout_constraintStart_toEndOf="@id/txtRs200" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtRs500"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:text="@string/rs_500"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/guideline200Rs"
+                        app:layout_constraintTop_toTopOf="@id/txtAtmAmount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtRs500Count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@{``+atmModel.atm500NotesCount}"
+                        android:textColor="@color/color_gray"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/txtRs500"
+                        app:layout_constraintStart_toStartOf="@id/txtRs500"
+                        app:layout_constraintTop_toBottomOf="@id/txtRs500" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline500Rs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.82"
+                        app:layout_constraintStart_toEndOf="@id/txtRs500" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtRs2000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:text="@string/rs_2000"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/guideline500Rs"
+                        app:layout_constraintTop_toTopOf="@id/txtAtmAmount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtRs2000Count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@{``+atmModel.atm2000NotesCount}"
+                        android:textColor="@color/color_gray"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/txtRs2000"
+                        app:layout_constraintStart_toStartOf="@id/txtRs2000"
+                        app:layout_constraintTop_toBottomOf="@id/txtRs2000" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@id/cardViewTop"
+                app:layout_constraintStart_toStartOf="@id/cardViewTop"
+                app:layout_constraintTop_toBottomOf="@id/cardViewTop">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/outlinedTextFieldWithDraw"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_your_withdraw_amount"
+                    app:boxStrokeColor="@color/purple_500"
+                    app:hintTextColor="@color/color_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtFieldWithdraw"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnWithdraw"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginHorizontal="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/bg_rounded_purple_shap"
+                    android:text="@string/withdraw"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/outlinedTextFieldWithDraw" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtLastTransaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="@string/last_transaction"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnWithdraw" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewLastTransaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtLastTransaction">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <include
+                            android:id="@+id/layoutLastHeader"
+                            layout="@layout/layout_header" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvTransaction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="vertical"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/layoutLastHeader"
+                            tools:itemCount="1"
+                            tools:listitem="@layout/row_transaction_item" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtYourTransaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="@string/your_transactions"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewLastTransaction" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewYourTransaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtYourTransaction">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <include
+                            android:id="@+id/layoutHeader"
+                            layout="@layout/layout_header" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvYourTransaction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:orientation="vertical"
+                            android:nestedScrollingEnabled="false"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+                            tools:itemCount="6"
+                            tools:listitem="@layout/row_transaction_item" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
